@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EPoint
   - Item
+  - Checker
   layers:
   - Default
   - TransparentFX

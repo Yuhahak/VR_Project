@@ -6,6 +6,8 @@ public class DoorCheck : MonoBehaviour
 {
     private bool isOpen = false;
 
+    public Animator doorAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class DoorCheck : MonoBehaviour
             if (Checker.instance.DoorOpen == true)
             {
                 gameObject.GetComponent<BoxCollider>().enabled = false;
+
+                DoorAnim(true);
                 Debug.Log("문이 열렸습니다");
                 isOpen = true;
             }
@@ -37,7 +41,13 @@ public class DoorCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            DoorAnim(false);
             Debug.Log("문이 잠겨있습니다.");
         }
+    }
+
+    public void DoorAnim(bool b)
+    {
+        doorAnim.SetBool("DoorOpen", b);
     }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2d573160a31d91488ffdd1801a7e012, type: 3}
-  m_Name: Rock
+  m_Name: TrashBox
   m_EditorClassIdentifier: 
-  itemName: Rock
-  itemType: 0
-  itemImage: {fileID: 21300000, guid: a5b6ecdbc26aa9f47b973c7481d1268a, type: 3}
-  itemPrefab: {fileID: 3152664140197329576, guid: b8f6188a041055349ad79066763ec45d, type: 3}
-  code: 1
+  itemName: TrashBox
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: 8ea3e46938e041f4a8abb8200dc90159, type: 3}
+  itemPrefab: {fileID: 1367613773004925114, guid: b14d077962b97734ba0926f4c0e2719b, type: 3}
+  code: 2
   Type: 

@@ -11,8 +11,14 @@ public class Item : ScriptableObject
     public Sprite itemImage;
     public GameObject itemPrefab;
 
+    public static Item instance;
+
     public string Type;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     public enum ItemType
     {
         Used,

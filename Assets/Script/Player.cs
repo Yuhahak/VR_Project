@@ -10,13 +10,20 @@ public class Player : MonoBehaviour
     public float gravityPower = -30.0f;
     public float yV = 0;
     private Rigidbody rb;
+    public Animator anim;
+
 
     public Transform cameraTransform;
     public CharacterController characterController;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
     }
 
     private void LateUpdate()
@@ -43,5 +50,7 @@ public class Player : MonoBehaviour
         characterController.Move(movement * Time.deltaTime);
 
     }
+
+
 
 }

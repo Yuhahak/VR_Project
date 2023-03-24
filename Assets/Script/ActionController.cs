@@ -74,10 +74,11 @@ public class ActionController : MonoBehaviour
     {
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask))
         {
-            if(hitInfo.transform.tag == "Item")
+            if (hitInfo.transform.tag == "Item" && heldItem == null)
             {
                 ItemInfoAppear();
             }
+
         }
         else
         {
@@ -88,11 +89,17 @@ public class ActionController : MonoBehaviour
     void ItemInfoAppear()
     {
         pickupActivated = true;
+        actionText.gameObject.SetActive(true);
+        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName;
+        item = hitInfo.transform.GetComponent<ItemPickUp>().item.itemPrefab; // 요부분 중요 ** itempickup스크립트에 저장해둔 프리펩을 고대로 가져오는 구문
+
+
     }
 
     void InfoDisappear()
     {
-        if(heldItem != null)
+        actionText.gameObject.SetActive(false);
+        if (heldItem != null)
         {
             if (Input.GetKeyDown(dropKey))
             {
@@ -102,6 +109,7 @@ public class ActionController : MonoBehaviour
                 heldItem.transform.parent = null;
                 heldItem = null;
             }
+
             pickupActivated = false;
         }
 

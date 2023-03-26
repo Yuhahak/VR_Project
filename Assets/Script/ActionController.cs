@@ -20,11 +20,18 @@ public class ActionController : MonoBehaviour
     private Text actionText;
 
     public GameObject item;
-    private GameObject heldItem;
+    public GameObject heldItem;
     public Transform hand;
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.Q;
 
+
+    public static ActionController instance;
+
+    private void Awake()
+    {
+        ActionController.instance = this;
+    }
     // Update is called once per frame
     void Update()
     {

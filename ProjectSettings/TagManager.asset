@@ -7,6 +7,7 @@ TagManager:
   - EPoint
   - Item
   - Checker
+  - Bullet
   layers:
   - Default
   - TransparentFX

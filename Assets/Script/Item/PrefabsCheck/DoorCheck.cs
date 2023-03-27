@@ -7,11 +7,12 @@ public class DoorCheck : MonoBehaviour
     private bool isOpen = false;
 
     public Animator doorAnim;
+    public static DoorCheck instance;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
- 
+        DoorCheck.instance = this;
     }
 
     // Update is called once per frame

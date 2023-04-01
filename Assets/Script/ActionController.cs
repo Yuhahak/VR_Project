@@ -20,6 +20,7 @@ public class ActionController : MonoBehaviour
     private Text actionText;
 
     public GameObject item;
+    public GameObject itemLetter;
     public GameObject heldItem;
     public Transform hand;
     public KeyCode pickupKey = KeyCode.E;

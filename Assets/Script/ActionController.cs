@@ -86,6 +86,10 @@ public class ActionController : MonoBehaviour
             {
                 ItemInfoAppear();
             }
+            if (hitInfo.transform.tag == "Lock" && heldItem == null)
+            {
+                ItemInfoAppear();
+            }
 
         }
         else

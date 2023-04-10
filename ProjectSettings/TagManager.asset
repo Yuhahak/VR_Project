@@ -8,7 +8,6 @@ TagManager:
   - Item
   - Checker
   - Bullet
-  - Letter
   layers:
   - Default
   - TransparentFX

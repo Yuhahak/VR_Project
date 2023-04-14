@@ -24,12 +24,12 @@ public class MouseMove : MonoBehaviour
         transform.Rotate(Vector3.up * mouseMoveX * sensitivity * Time.deltaTime);
         transform.Rotate(Vector3.left * mouseMoveY * sensitivity * Time.deltaTime);
 
-        if (rotationX > 35f)
+        if (rotationX >= 35f)
         {
             rotationX = 35f;
         }
 
-        if (rotationX < -30f)
+        if (rotationX <= -30f)
         {
             rotationX = -30f;
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Key : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,13 @@ public class Enemy : MonoBehaviour
         
     }
 
+
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "BULLET")
+        if (collision.gameObject.CompareTag("Bullet")) //총알과 닿았을때
         {
-            Destroy(gameObject, 0.2f);
+            gameObject.GetComponent<Rigidbody>().isKinematic = false; // 중력이 작용하도록
         }
     }
 }

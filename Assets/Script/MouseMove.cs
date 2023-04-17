@@ -8,10 +8,19 @@ public class MouseMove : MonoBehaviour
     public float rotationX;
     public float rotationY;
 
-     void Start()
+    public static MouseMove instance;
+
+
+
+    void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void Awake()
+    {
+        MouseMove.instance = this;
     }
     void Update()
     {
@@ -35,5 +44,16 @@ public class MouseMove : MonoBehaviour
         }
 
         transform.eulerAngles = new Vector3(-rotationX, rotationY, 0);
+    }
+
+    public void unLock() //마우스커서 보이게
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void Lock() //마우스 커서 안보이게
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

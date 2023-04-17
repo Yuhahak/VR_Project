@@ -31,7 +31,6 @@ public class BulletCreate : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && ActionController.instance.heldItem && isGun)
         {
-            Debug.Log("1");
             Rigidbody bulletRb =
                 Instantiate(prefabBullet, BulletPos.position, BulletPos.localRotation);
 

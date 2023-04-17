@@ -29,9 +29,9 @@ public class MouseMove : MonoBehaviour
             rotationX = 35f;
         }
 
-        if (rotationX <= -30f)
+        if (rotationX <= -50f)
         {
-            rotationX = -30f;
+            rotationX = -50f;
         }
 
         transform.eulerAngles = new Vector3(-rotationX, rotationY, 0);

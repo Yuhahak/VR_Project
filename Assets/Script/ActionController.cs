@@ -51,19 +51,21 @@ public class ActionController : MonoBehaviour
 
     void CanPickUp()
     {
-        if (pickupActivated)
+        if (pickupActivated) // true일 때만 작동
         {
-            if(hitInfo.transform != null) // 조준선에 아이템이 있을때
+            
+            if (hitInfo.transform != null)
             {
 
                 if (Input.GetKeyDown(pickupKey) && heldItem == null)
                 {
+                    
                     Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
                     foreach (Collider collider in colliders)
                     {
-                        if (collider.gameObject.tag == "Player")
+                        if (collider.gameObject.tag == "Player") //Player 태그를 갖고 있는 자
                         {
-                            Destroy(hitInfo.transform.gameObject);
+                            Destroy(hitInfo.transform.gameObject); //삭제 후 프리펩을 가져온다 CheckItem에서 확인 가능
                             Debug.Log("아이템 픽업");
                             heldItem = Instantiate(item, hand);
                             heldItem.transform.localPosition = Vector3.zero;
@@ -73,20 +75,21 @@ public class ActionController : MonoBehaviour
                         }
                     }
                 }
-                InfoDisappear();
+                InfoDisappear(); //pickupActivated 초기화
             }
         }
     }
 
     void CheckItem()
     {
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask)) //시야에 닿은 것 파악
         {
-            if (hitInfo.transform.tag == "Item" && heldItem == null)
+
+            if (hitInfo.transform.tag == "Item" && heldItem == null) // 에임에 닿은 오브젝트가 tag가 Item이고 손에 든것이 없다면
             {
-                ItemInfoAppear();
+                ItemInfoAppear(); //해당 함수 실행 (글씨 나타내줌)
             }
-            if (hitInfo.transform.tag == "Lock" && heldItem == null)
+            if (hitInfo.transform.tag == "Lock" && heldItem == null) /// tag가 Lock이어도 똑같이 동작
             {
                 ItemInfoAppear();
             }
@@ -94,15 +97,15 @@ public class ActionController : MonoBehaviour
         }
         else
         {
-            InfoDisappear();
+            InfoDisappear(); //글씨 없음
         }
     }
 
     void ItemInfoAppear()
     {
-        pickupActivated = true;
+        pickupActivated = true; //false 에서 true로 변경
         actionText.gameObject.SetActive(true);
-        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName;
+        actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName; // ItemPickUp script에서 가져옴
         item = hitInfo.transform.GetComponent<ItemPickUp>().item.itemPrefab; // 요부분 중요 ** itempickup스크립트에 저장해둔 프리펩을 고대로 가져오는 구문
 
 
@@ -117,7 +120,7 @@ public class ActionController : MonoBehaviour
             {
                 Debug.Log("아이템 내려놓기");
 
-                heldItem.GetComponent<Rigidbody>().isKinematic = false;
+                heldItem.GetComponent<Rigidbody>().isKinematic = false; //고정 해제
                 heldItem.transform.parent = null;
                 heldItem = null;
             }

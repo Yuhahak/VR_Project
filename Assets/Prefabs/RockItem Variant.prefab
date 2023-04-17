@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd748f3bbb776941ae74ff915104869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoorOpen: 0
+  DoorOpen: 1
+  PhotoOn: 0
 --- !u!114 &6019091384702198869
 MonoBehaviour:
   m_ObjectHideFlags: 0

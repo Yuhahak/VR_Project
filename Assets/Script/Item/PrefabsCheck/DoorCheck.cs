@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorCheck : MonoBehaviour
 {
-    private bool isOpen = false;
+    private bool isOpen = false; //오픈을 1회만 가능하도록하는 bool
 
     public Animator doorAnim;
     public static DoorCheck instance;

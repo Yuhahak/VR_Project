@@ -37,6 +37,7 @@ public class PhotoCheck : MonoBehaviour
                 item = Instantiate(GetComponent<ItemPickUp>().item.itemPrefab);
                 item.GetComponent<Rigidbody>().isKinematic = true;
                 item.transform.position = transform.position;
+                item.tag = "Finish"; //tag를 Item에서 Finish로 변경하여 올바르게 장착 시 다시 뗄 수 없도록 만듦
                 isOpen = true;
                 Destroy(g);
             }

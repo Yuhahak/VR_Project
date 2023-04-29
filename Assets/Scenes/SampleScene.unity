@@ -2315,6 +2315,8 @@ MonoBehaviour:
   hand: {fileID: 467933819}
   pickupKey: 101
   dropKey: 113
+  IsRock: 0
+  IsGun: 0
 --- !u!4 &977193423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1076640317178002440, guid: b14d077962b97734ba0926f4c0e2719b, type: 3}

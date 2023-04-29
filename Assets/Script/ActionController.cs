@@ -21,10 +21,14 @@ public class ActionController : MonoBehaviour
 
     public GameObject item;
     public GameObject itemLetter;
-    public GameObject heldItem;
+    public GameObject heldItem = null;
     public Transform hand;
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.Q;
+
+    //아이템 체크
+    public bool IsRock = false; 
+    public bool IsGun = false;
 
 
     public static ActionController instance;
@@ -38,7 +42,29 @@ public class ActionController : MonoBehaviour
     {
         CheckItem();
         TryAction();
+        if(heldItem != null) // 아이템을 들고 있을때
+        {
+            switch (heldItem.name) // heldItem 안에 오브젝트 이름이
+            {
+                case ("Rock(Clone)"): // Rock(Clone) 이라면
+                    IsRock = true; 
+                    break;
+                case ("Gun(Clone)"):
+                    IsGun = true;
+                    break;
+            }
+            
+        }
+        else // 아이템을 들고 있지 않다면
+        {
+            IsRock = false;
+            IsGun = false;
+        }
     }
+
+
+
+    
 
     private void TryAction()
     {
@@ -47,6 +73,7 @@ public class ActionController : MonoBehaviour
             CheckItem();
             CanPickUp();
         }
+        
     }
 
     void CanPickUp()

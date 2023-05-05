@@ -90,8 +90,7 @@ public class ActionController : MonoBehaviour
                     Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
                     foreach (Collider collider in colliders)
                     {
-                        if (collider.gameObject.tag == "Player") //Player 태그를 갖고 있는 자
-                        {
+
                             Destroy(hitInfo.transform.gameObject); //삭제 후 프리펩을 가져온다 CheckItem에서 확인 가능
                             Debug.Log("아이템 픽업");
                             heldItem = Instantiate(item, hand);
@@ -99,7 +98,7 @@ public class ActionController : MonoBehaviour
                             heldItem.transform.localRotation = Quaternion.identity;
                             heldItem.GetComponent<Rigidbody>().isKinematic = true;
                             break;
-                        }
+                        
                     }
                 }
                 InfoDisappear(); //pickupActivated 초기화
@@ -115,10 +114,6 @@ public class ActionController : MonoBehaviour
             if (hitInfo.transform.tag == "Item" && heldItem == null) // 에임에 닿은 오브젝트가 tag가 Item이고 손에 든것이 없다면
             {
                 ItemInfoAppear(); //해당 함수 실행 (글씨 나타내줌)
-            }
-            if (hitInfo.transform.tag == "Lock" && heldItem == null) /// tag가 Lock이어도 똑같이 동작
-            {
-                ItemInfoAppear();
             }
 
         }

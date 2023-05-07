@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Checker
   - Bullet
+  - Letter
+  - Key1
   layers:
   - Default
   - TransparentFX

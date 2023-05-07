@@ -13,4 +13,5 @@ public class InstanceManager : MonoBehaviour
     }
 
     public bool key1 = false;
+    public bool openBox = false;
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Checker : MonoBehaviour
 {
     public bool DoorOpen = false;
-    public bool PhotoOn = false; //PhotoOn true 시 Photo와 PhotoPrame 합쳐진 것
+    public bool PhotoOn = false; //PhotoOn true 시 Photo와 PhotoPrame 합쳐짐
 
     public static Checker instance;
 
@@ -31,17 +31,24 @@ public class Checker : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f); //반경 내 레이어 추출
         foreach (Collider collider in colliders) //레이어 추출 훑음
         {
-            if (collider.gameObject.tag == "Checker") //닿은 레이어의 태그가 Cheker라면
+            if (collider.gameObject.tag == "Checker") //닿은 레이어의 태그가 Checker라면
             {
-                
+
                 DoorOpen = true;
-                PhotoOn = true;
                 Debug.Log("아이템 체크, True");
-                if(collider.transform.GetComponent<PhotoCheck>())
+
+                if (gameObject.tag == "Photo")
                 {
-                    collider.transform.GetComponent<PhotoCheck>().PhotoCheckOpen(gameObject);
+                    Debug.Log("아이템 체크, 2");
+                    if (collider.transform.GetComponent<PhotoCheck>())
+                    {
+                        PhotoOn = true;
+                        collider.transform.GetComponent<PhotoCheck>().PhotoCheckOpen(gameObject);
+
+                    }
+
+                    //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
                 }
-                //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
             }
         }
     }

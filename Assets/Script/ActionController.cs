@@ -111,11 +111,11 @@ public class ActionController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hitInfo, range, layerMask)) //시야에 닿은 것 파악
         {
 
-            if (hitInfo.transform.tag == "Item" && heldItem == null) // 에임에 닿은 오브젝트가 tag가 Item이고 손에 든것이 없다면
+            if (hitInfo.transform.gameObject.layer == 6 && heldItem == null) // 에임에 닿은 오브젝트가 tag가 Item이고 손에 든것이 없다면
             {
-                ItemInfoAppear(); //해당 함수 실행 (글씨 나타내줌)
+                ItemInfoAppear(); //해당 함수 실행 (글씨 나타내고 복사할 프리펩 가져옴, 실행되어야할 필수 함수)
             }
-
+           
         }
         else
         {

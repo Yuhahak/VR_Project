@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1600690989}
   m_Layer: 6
   m_Name: Photo
-  m_TagString: Item
+  m_TagString: Photo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

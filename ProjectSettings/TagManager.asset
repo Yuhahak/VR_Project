@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Letter
   - Key1
+  - Photo
   layers:
   - Default
   - TransparentFX

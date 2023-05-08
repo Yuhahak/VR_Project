@@ -10,10 +10,14 @@ public class PhotoCheck : MonoBehaviour
     public GameObject item;
     private RaycastHit hitInfo;
     public static PhotoCheck instance;
+/*
+    public Animator padeAnim;*/
+    
 
     private void Awake()
     {
         PhotoCheck.instance = this;
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -35,12 +39,15 @@ public class PhotoCheck : MonoBehaviour
             {
                 Debug.Log("액자와 사진이 합쳐졌습니다.");
                 item = Instantiate(GetComponent<ItemPickUp>().item.itemPrefab);
-                item.GetComponent<Rigidbody>().isKinematic = true;
+                item.GetComponent<Rigidbody>().isKinematic = true; //고정
                 item.transform.position = transform.position;
-                item.tag = "Finish"; //tag를 Item에서 Finish로 변경하여 올바르게 장착 시 다시 뗄 수 없도록 만듦
+                item.layer = 0; //layer를 0으로 변경하여 집을 수 없도록 만듦
                 isOpen = true;
+                
                 Destroy(g);
+
             }
         }
+        /*padeAnim.SetBool("isOpenTrue", true);*/
     }
 }

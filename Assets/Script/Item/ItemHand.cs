@@ -18,7 +18,8 @@ public class ItemHand : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(transform.position, 1f); //충돌 배열에 순차적으로 컴퍼넌트 값 변경을 위한 배열 Physics.OverlapSphere로 주변 충돌체 감지
             foreach (Collider collider in colliders) //collider 배열을 훑음
             {
-                if (collider.gameObject.tag == "Item") // Item tag가 달린 오브젝트 감지 시 > 작동하려면 Item오브젝트에 Item tag를 단다
+                /*if (collider.gameObject.tag == "Item")*/ // Item tag가 달린 오브젝트 감지 시 > 작동하려면 Item오브젝트에 Item tag를 단다 //tag가 아닌 layer로 바꾸어야 간편할듯 싶음
+                if (collider.gameObject.layer == 6)
                 { 
                     Debug.Log("1"); //로그에 1 등록
                     heldItem = Instantiate(item, hand); //heldItem에 item 객체를 hand 위치에 생성

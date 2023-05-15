@@ -31,6 +31,7 @@ public class Checker : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, 1f); //반경 내 레이어 추출
         foreach (Collider collider in colliders) //레이어 추출 훑음
         {
+
             if (collider.gameObject.tag == "Checker") //닿은 레이어의 태그가 Checker라면
             {
 
@@ -39,17 +40,44 @@ public class Checker : MonoBehaviour
 
                 if (gameObject.tag == "Photo")
                 {
-                    Debug.Log("아이템 체크, 2");
+                    Debug.Log("아이템 체크, Photo");
                     if (collider.transform.GetComponent<PhotoCheck>())
                     {
-                        PhotoOn = true;
+                        PhotoOn = true; //애니메이션 조작을 위한 key
                         collider.transform.GetComponent<PhotoCheck>().PhotoCheckOpen(gameObject);
 
                     }
 
                     //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
                 }
+
+                if (gameObject.tag == "Photo1")
+                {
+                    Debug.Log("아이템 체크, Photo1");
+                    if (collider.transform.GetComponent<PhotoCheck1>()) // 이 GetComponent를 변경함으로써 cheker 구분을 진행함
+                    {
+                        PhotoOn = true;
+                        collider.transform.GetComponent<PhotoCheck1>().PhotoCheckOpen(gameObject);
+
+                    }
+
+                    //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
+                }
+
+                if (gameObject.tag == "Photo2")
+                {
+                    Debug.Log("아이템 체크, Photo2");
+                    if (collider.transform.GetComponent<PhotoCheck2>()) // 이 GetComponent를 변경함으로써 cheker 구분을 진행함
+                    {
+                        PhotoOn = true;
+                        collider.transform.GetComponent<PhotoCheck2>().PhotoCheckOpen(gameObject);
+
+                    }
+
+                    //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
+                }
             }
+
         }
     }
 }

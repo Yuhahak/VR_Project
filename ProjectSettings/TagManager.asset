@@ -11,6 +11,8 @@ TagManager:
   - Letter
   - Key1
   - Photo
+  - Photo1
+  - Photo2
   layers:
   - Default
   - TransparentFX

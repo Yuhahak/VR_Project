@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
-public class PhotoCheck : MonoBehaviour
+public class PhotoCheck2 : MonoBehaviour
 {
     private bool isOpen = false; //합침을 1회만 가능하도록하는 bool
 
     public GameObject item;
     private RaycastHit hitInfo;
-    public static PhotoCheck instance;
+    public static PhotoCheck2 instance;
 /*
     public Animator padeAnim;*/
     
 
     private void Awake()
     {
-        PhotoCheck.instance = this;
+        PhotoCheck2.instance = this;
         
     }
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class PhotoCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        //PhotoCheckOpen();
+        //PhotoCheckOpen(); CHEKER.CS에서 불러옴
     }
 
     public void PhotoCheckOpen(GameObject g)
@@ -50,4 +50,5 @@ public class PhotoCheck : MonoBehaviour
         }
         /*padeAnim.SetBool("isOpenTrue", true);*/
     }
+
 }

@@ -13,6 +13,7 @@ TagManager:
   - Photo
   - Photo1
   - Photo2
+  - DoorKey
   layers:
   - Default
   - TransparentFX

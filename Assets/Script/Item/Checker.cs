@@ -35,7 +35,7 @@ public class Checker : MonoBehaviour
             if (collider.gameObject.tag == "Checker") //닿은 레이어의 태그가 Checker라면
             {
 
-                DoorOpen = true;
+                
                 Debug.Log("아이템 체크, True");
 
                 if (gameObject.tag == "Photo")
@@ -73,6 +73,27 @@ public class Checker : MonoBehaviour
                         collider.transform.GetComponent<PhotoCheck2>().PhotoCheckOpen(gameObject);
 
                     }
+
+                    //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
+                }
+
+                if (gameObject.tag == "DoorKey")
+                {
+                    Debug.Log("아이템 체크, DoorKey");
+
+                    if (collider.transform.GetComponent<DoorCheck>()) {
+                        Debug.Log("문이 열립니다.");
+                        DoorOpen = true; //아직 미사용 변수
+
+                        collider.transform.GetComponent<DoorCheck>().DoorOpen();
+                    }
+
+                    /*if (collider.transform.GetComponent<PhotoCheck2>()) // 이 GetComponent를 변경함으로써 cheker 구분을 진행함
+                    {
+                        PhotoOn = true;
+                        collider.transform.GetComponent<PhotoCheck2>().PhotoCheckOpen(gameObject);
+
+                    }*/
 
                     //Destroy(gameObject); //아이템을 삭제하고 DoorOpen을 true로 한다.
                 }

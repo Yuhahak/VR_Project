@@ -4,51 +4,28 @@ using UnityEngine;
 
 public class DoorCheck : MonoBehaviour
 {
-    private bool isOpen = false; //오픈을 1회만 가능하도록하는 bool
 
-    public Animator doorAnim;
-    public static DoorCheck instance;
+    public Animator doorOpenAnim;
+
 
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
     {
-        DoorCheck.instance = this;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        DoorCheckOpen();
+        
     }
 
-    void DoorCheckOpen()
-    {
-        if (isOpen == false)
-        {
-            if (Checker.instance.DoorOpen == true)
-            {
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-
-                DoorAnim(true);
-                Debug.Log("문이 열렸습니다");
-                isOpen = true;
-            }
-        }
+    public void DoorOpen() {
+        doorOpenAnim.SetInteger("doorState", 1);
     }
 
-
-
-    private void OnCollisionEnter(Collision collision)
+    public void DoorClose()
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            DoorAnim(false);
-            Debug.Log("문이 잠겨있습니다.");
-        }
-    }
-
-    public void DoorAnim(bool b)
-    {
-        doorAnim.SetBool("DoorOpen", b);
+        doorOpenAnim.SetInteger("doorState", 0);
     }
 }
